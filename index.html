@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WOODCRAFT — мебель на заказ</title>
+    <meta
+      name="description"
+      content="Изготавливаем мебель на заказ для квартир, домов и коммерческих пространств. Продуманный дизайн, качественные материалы и внимание к деталям."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page" id="top">
+      <div class="atmosphere" aria-hidden="true"></div>
+
+      <header class="header">
+        <div class="wrap header-bar">
+          <a class="logo" href="#top">
+            <span class="logo-name">WOODCRAFT</span>
+            <span class="logo-sub">Мебель на заказ</span>
+          </a>
+
+          <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+          <label class="burger" for="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            Меню
+          </label>
+
+          <nav class="nav" aria-label="Основное меню">
+            <a href="#about" onclick="document.getElementById('nav-toggle').checked=false">О нас</a>
+            <a href="#projects" onclick="document.getElementById('nav-toggle').checked=false">Проекты</a>
+            <a href="#services" onclick="document.getElementById('nav-toggle').checked=false">Услуги</a>
+            <a href="#contacts" onclick="document.getElementById('nav-toggle').checked=false">Контакты</a>
+          </nav>
+
+          <div class="header-tools">
+            <p class="city">
+              <span>Минск</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+            </p>
+
+            <div class="cart">
+              <input class="cart-toggle" type="checkbox" id="cart-toggle" />
+              <label class="cart-btn" for="cart-toggle" aria-label="Корзина">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M6.5 8h11l-.8 11.2a1.5 1.5 0 0 1-1.5 1.4H8.8a1.5 1.5 0 0 1-1.5-1.4L6.5 8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9 8V6.8A3 3 0 0 1 12 3.8 3 3 0 0 1 15 6.8V8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </label>
+              <div class="cart-pop" role="status">
+                <strong>Корзина пуста</strong>
+                <p>Мебель считаем индивидуально — оставьте заявку, и мы подготовим проект.</p>
+                <a href="#contacts" onclick="document.getElementById('cart-toggle').checked=false">Оставить заявку</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="wrap hero-grid">
+            <div class="hero-copy">
+              <h1>
+                Мебель,<br />
+                которая подстраивается<br />
+                под вашу жизнь
+              </h1>
+              <p>
+                Изготавливаем мебель на заказ для квартир, домов и коммерческих пространств. Продуманный
+                дизайн, качественные материалы и внимание к деталям на каждом этапе.
+              </p>
+            </div>
+
+            <a class="hero-card" href="#projects">
+              <img
+                src="/images/hero.jpg"
+                alt="Светлая кухня-столовая: деревянные фасады, обеденный стол и мягкие стулья"
+                width="1067"
+                height="1377"
+              />
+              <span class="hero-card-btn">
+                Посмотреть проекты
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7 17 17 7M9 7h8v8"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <section class="about" id="about">
+          <div class="wrap">
+            <div class="about-head">
+              <h2>
+                Создаём мебель,<br />
+                которая отражает ваш стиль
+              </h2>
+              <p>
+                Мы разрабатываем и производим мебель по индивидуальным размерам, учитывая ваши потребности,
+                пространство и стиль жизни. От идеи и проекта до установки — всё под контролем нашей команды.
+              </p>
+            </div>
+
+            <div class="about-grid">
+              <figure class="project" id="projects">
+                <img
+                  src="/images/living.jpg"
+                  alt="Гостиная с угловым диваном, открытой кухней и встроенным стеллажом"
+                  width="1700"
+                  height="1000"
+                />
+              </figure>
+
+              <ul class="stats">
+                <li>
+                  <strong>6 лет</strong>
+                  <span>на рынке</span>
+                </li>
+                <li>
+                  <strong>200+</strong>
+                  <span>реализованных проектов</span>
+                </li>
+                <li>
+                  <strong>98%</strong>
+                  <span>клиентов рекомендуют нас</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="reasons" id="services">
+          <div class="wrap">
+            <h2>
+              4 причины, почему с нами удобно<br class="wide" />
+              и надежно работать
+            </h2>
+            <ol class="reason-grid">
+              <li>
+                <span class="num">01</span>
+                <h3>Индивидуальный подход</h3>
+                <span class="rule"></span>
+                <p>Учитываем ваши пожелания, пространство и образ жизни. Каждый проект уникален.</p>
+              </li>
+              <li>
+                <span class="num">02</span>
+                <h3>Качество материалов</h3>
+                <span class="rule"></span>
+                <p>Работаем с проверенными поставщиками и используем только надежные материалы.</p>
+              </li>
+              <li>
+                <span class="num">03</span>
+                <h3>Профессиональная команда</h3>
+                <span class="rule"></span>
+                <p>Дизайнеры, конструкторы и мастера с опытом от 5 лет.</p>
+              </li>
+              <li>
+                <span class="num">04</span>
+                <h3>Соблюдение сроков</h3>
+                <span class="rule"></span>
+                <p>Четкий план, прозрачные этапы и контроль на каждом шаге.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="cta" id="contacts">
+          <div class="cta-orb" aria-hidden="true"></div>
+          <img class="cta-plant" src="/images/leaves.webp" alt="" />
+          <div class="wrap cta-grid">
+            <div class="cta-copy">
+              <h2>
+                Хотите мебель,<br />
+                которой не будет<br />
+                ни у кого?
+              </h2>
+              <p>
+                Оставьте заявку — мы свяжемся с вами, обсудим ваш проект и предложим лучшее решение.
+              </p>
+              <div class="socials">
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                    <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+                    <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" />
+                  </svg>
+                </a>
+                <a href="https://t.me" target="_blank" rel="noreferrer" aria-label="Telegram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M20.2 5.4 3.9 11.2c-.9.3-.8 1.6.1 1.8l4.1 1.3 1.6 4.8c.3.8 1.3 1 1.9.4l2.3-2.2 4.2 3.1c.7.5 1.7.1 1.9-.8l2.6-12.2c.2-1.1-.8-2-1.8-1.6z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linejoin="round"
+                    />
+                    <path d="m8.2 14.2 8.6-6.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                  </svg>
+                </a>
+                <a href="https://pinterest.com" target="_blank" rel="noreferrer" aria-label="Pinterest">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                    <path
+                      d="M10.2 18.2c.3-1.1.7-2.3.9-3.4.1-.4 0-.8-.2-1.1-.6-.7-.8-1.7-.6-2.6.3-1.2 1.5-1.8 2.6-1.8 2.2 0 3.6 1.6 3.6 3.7 0 2.2-1.2 3.7-2.9 3.7-1.1 0-1.9-.8-1.6-1.9.1-.5.4-1 .4-1.3 0-.5-.3-.9-.8-.9-.7 0-1.4.8-1.4 1.9 0 1.1.6 2.1 1.6 2.1"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <form class="form" id="request" novalidate>
+              <div class="fields">
+                <label>
+                  <span class="sr">Имя</span>
+                  <input type="text" name="name" placeholder="Имя" autocomplete="name" required />
+                </label>
+                <label>
+                  <span class="sr">Телефон</span>
+                  <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
+                </label>
+                <label>
+                  <span class="sr">Описание проекта</span>
+                  <textarea name="project" placeholder="Опишите ваш проект" rows="4" required></textarea>
+                </label>
+                <button class="submit" type="submit">Отправить заявку</button>
+                <p class="legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+              </div>
+              <div class="thanks" role="status">
+                <strong>Заявка отправлена</strong>
+                <p>Свяжемся с вами, уточним размеры и предложим решение под ваше пространство.</p>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="wrap footer-bar">
+          <a class="logo" href="#top">
+            <span class="logo-name">WOODCRAFT</span>
+            <span class="logo-sub">Мебель на заказ</span>
+          </a>
+          <nav class="footer-nav" aria-label="Меню в подвале">
+            <a href="#about">О нас</a>
+            <a href="#projects">Проекты</a>
+            <a href="#services">Услуги</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+          <p class="footer-note">
+            <span class="footer-rule"></span>
+            <span>Авторская мебель для вашего<br />пространства</span>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("request").addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!this.reportValidity()) return;
+        this.classList.add("is-sent");
+      });
+    </script>
+  </body>
+</html>
