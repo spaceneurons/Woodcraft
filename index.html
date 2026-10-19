@@ -6,158 +6,75 @@
     <title>WOODCRAFT — мебель на заказ</title>
     <meta
       name="description"
-      content="Изготавливаем мебель на заказ для квартир, домов и коммерческих пространств. Продуманный дизайн, качественные материалы и внимание к деталям."
+      content="Мебель на заказ из натурального дерева. Дизайнерский ремонт, индивидуальные размеры и установка под ключ."
     />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="fonts/fonts.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
     <div class="page" id="top">
       <div class="atmosphere" aria-hidden="true">
-        <img src="images/fern.jpg" alt="" width="1920" height="3600" />
-        <img class="fern-bottom" src="images/fern.jpg" alt="" width="1920" height="3600" />
+        <img src="images/fern.jpg" alt="" width="2281" height="4096" />
       </div>
-
-      <header class="header">
-        <div class="wrap header-bar">
-          <a class="logo" href="#top">
-            <span class="logo-name">WOODCRAFT</span>
-            <span class="logo-sub">Мебель на заказ</span>
-          </a>
-
-          <input class="nav-toggle" type="checkbox" id="nav-toggle" />
-          <label class="burger" for="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-            Меню
-          </label>
-
-          <nav class="nav" aria-label="Основное меню">
-            <a href="#about" onclick="document.getElementById('nav-toggle').checked=false">О нас</a>
-            <a href="#projects" onclick="document.getElementById('nav-toggle').checked=false">Проекты</a>
-            <a href="#services" onclick="document.getElementById('nav-toggle').checked=false">Услуги</a>
-            <a href="#contacts" onclick="document.getElementById('nav-toggle').checked=false">Контакты</a>
-          </nav>
-
-          <div class="header-tools">
-            <p class="city">
-              <span>Минск</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                />
-                <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6" />
-              </svg>
-            </p>
-
-            <div class="cart">
-              <input class="cart-toggle" type="checkbox" id="cart-toggle" />
-              <label class="cart-btn" for="cart-toggle" aria-label="Корзина">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M6.5 8h11l-.8 11.2a1.5 1.5 0 0 1-1.5 1.4H8.8a1.5 1.5 0 0 1-1.5-1.4L6.5 8z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M9 8V6.8A3 3 0 0 1 12 3.8 3 3 0 0 1 15 6.8V8"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </label>
-              <div class="cart-pop" role="status">
-                <strong>Корзина пуста</strong>
-                <p>Мебель считаем индивидуально — оставьте заявку, и мы подготовим проект.</p>
-                <a href="#contacts" onclick="document.getElementById('cart-toggle').checked=false">Оставить заявку</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
 
       <main>
         <section class="hero">
-          <div class="wrap hero-grid">
-            <div class="hero-copy">
-              <h1>
-                Мебель,<br />
-                которая подстраивается<br />
-                под вашу жизнь
-              </h1>
-              <p>
-                Изготавливаем мебель на заказ для квартир, домов и коммерческих пространств. Продуманный
-                дизайн, качественные материалы и внимание к деталям на каждом этапе.
-              </p>
-            </div>
-
-            <a class="hero-card" href="#projects">
-              <img
-                src="images/hero.jpg"
-                alt="Светлая кухня-столовая: деревянные фасады, обеденный стол и мягкие стулья"
-                width="1067"
-                height="1377"
-              />
-              <span class="hero-card-btn">
-                Посмотреть проекты
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M7 17 17 7M9 7h8v8"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-            </a>
+          <img
+            class="hero-photo"
+            src="images/chair.png"
+            alt=""
+            width="2280"
+            height="972"
+          />
+          <div class="hero-copy">
+            <p class="eyebrow">Дизайнерский ремонт • Натуральное дерево</p>
+            <h1>Мебель на заказ</h1>
+            <a class="hero-btn" href="#contacts">Оставить заявку</a>
           </div>
         </section>
 
+        <div class="sheet">
         <section class="about" id="about">
           <div class="wrap">
             <div class="about-head">
-              <h2>
+              <h2 class="reveal">
                 Создаём мебель,<br />
                 которая отражает ваш стиль
               </h2>
-              <p>
+              <p class="reveal" style="--d: 0.12s">
                 Мы разрабатываем и производим мебель по индивидуальным размерам, учитывая ваши потребности,
                 пространство и стиль жизни. От идеи и проекта до установки — всё под контролем нашей команды.
               </p>
             </div>
 
             <div class="about-grid">
-              <figure class="project" id="projects">
-                <img
-                  src="images/living.jpg"
-                  alt="Гостиная с угловым диваном, открытой кухней и встроенным стеллажом"
-                  width="1700"
-                  height="1000"
-                />
+              <figure class="project reveal" id="projects" style="--d: 0.08s">
+                <div class="project-frame">
+                  <img
+                    class="project-photo"
+                    src="images/living.jpg"
+                    alt="Гостиная с угловым диваном, открытой кухней и встроенным стеллажом"
+                    width="1700"
+                    height="1000"
+                  />
+                </div>
               </figure>
 
               <ul class="stats">
-                <li>
-                  <strong>6 лет</strong>
+                <li class="reveal" style="--d: 0.16s">
+                  <strong data-count="6" data-suffix=" лет">6 лет</strong>
                   <span>на рынке</span>
                 </li>
-                <li>
-                  <strong>200+</strong>
+                <li class="reveal" style="--d: 0.28s">
+                  <strong data-count="200" data-suffix="+">200+</strong>
                   <span>реализованных проектов</span>
                 </li>
-                <li>
-                  <strong>98%</strong>
+                <li class="reveal" style="--d: 0.4s">
+                  <strong data-count="98" data-suffix="%">98%</strong>
                   <span>клиентов рекомендуют нас</span>
                 </li>
               </ul>
@@ -167,30 +84,30 @@
 
         <section class="reasons" id="services">
           <div class="wrap">
-            <h2>
-              4 причины, почему с нами удобно<br class="wide" />
+            <h2 class="reveal">
+              4 причины, почему с нами удобно<br />
               и надежно работать
             </h2>
             <ol class="reason-grid">
-              <li>
+              <li class="reveal" style="--d: 0.05s">
                 <span class="num">01</span>
                 <h3>Индивидуальный подход</h3>
                 <span class="rule"></span>
                 <p>Учитываем ваши пожелания, пространство и образ жизни. Каждый проект уникален.</p>
               </li>
-              <li>
+              <li class="reveal" style="--d: 0.16s">
                 <span class="num">02</span>
                 <h3>Качество материалов</h3>
                 <span class="rule"></span>
                 <p>Работаем с проверенными поставщиками и используем только надежные материалы.</p>
               </li>
-              <li>
+              <li class="reveal" style="--d: 0.27s">
                 <span class="num">03</span>
                 <h3>Профессиональная команда</h3>
                 <span class="rule"></span>
                 <p>Дизайнеры, конструкторы и мастера с опытом от 5 лет.</p>
               </li>
-              <li>
+              <li class="reveal" style="--d: 0.38s">
                 <span class="num">04</span>
                 <h3>Соблюдение сроков</h3>
                 <span class="rule"></span>
@@ -202,7 +119,7 @@
 
         <section class="cta" id="contacts">
           <div class="wrap cta-grid">
-            <div class="cta-copy">
+            <div class="cta-copy reveal reveal-left">
               <h2>
                 Хотите мебель,<br />
                 которой не будет<br />
@@ -246,7 +163,7 @@
               </div>
             </div>
 
-            <form class="form" id="request" novalidate>
+            <form class="form reveal reveal-right" id="request" style="--d: 0.14s" novalidate>
               <div class="fields">
                 <label>
                   <span class="sr">Имя</span>
@@ -270,9 +187,8 @@
             </form>
           </div>
         </section>
-      </main>
 
-      <footer class="footer">
+      <footer class="footer reveal">
         <div class="wrap footer-bar">
           <a class="logo" href="#top">
             <span class="logo-name">WOODCRAFT</span>
@@ -290,14 +206,10 @@
           </p>
         </div>
       </footer>
+        </div>
+      </main>
     </div>
 
-    <script>
-      document.getElementById("request").addEventListener("submit", function (event) {
-        event.preventDefault();
-        if (!this.reportValidity()) return;
-        this.classList.add("is-sent");
-      });
-    </script>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
