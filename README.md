@@ -10,3 +10,5 @@ npm run dev
 ```
 
 Сайт откроется на [http://127.0.0.1:4317](http://127.0.0.1:4317).
+
+На GitHub Pages публикуйте корень репозитория как есть: `index.html`, `styles.css`, `main.js`, `vendor/`, `images/` и `fonts/`. Сборка не нужна. Папка `node_modules/` в репозиторий не входит.

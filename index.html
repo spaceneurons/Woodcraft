@@ -10,9 +10,15 @@
     />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="vendor/lenis.css" />
     <link rel="stylesheet" href="styles.css" />
     <script>
       document.documentElement.classList.add("js");
+      window.setTimeout(function () {
+        if (!document.documentElement.classList.contains("motion-ready")) {
+          document.documentElement.classList.add("motion-fallback");
+        }
+      }, 2500);
     </script>
   </head>
   <body>
@@ -210,6 +216,6 @@
       </main>
     </div>
 
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

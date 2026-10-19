@@ -1,5 +1,6 @@
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
+import Lenis from "./vendor/lenis.mjs";
+
+document.documentElement.classList.add("motion-ready");
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

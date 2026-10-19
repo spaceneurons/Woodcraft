@@ -172,6 +172,15 @@ main,
   }
 }
 
+@keyframes hero-drift-narrow {
+  from {
+    transform: translate3d(-40%, -4%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-40%, -4%, 0) scale(1.06);
+  }
+}
+
 .sheet {
   position: relative;
   z-index: 2;
@@ -603,8 +612,8 @@ main,
   }
 
   .hero {
-    height: auto;
-    min-height: 560px;
+    height: clamp(460px, 128vw, 680px);
+    min-height: 0;
     align-items: center;
   }
 
@@ -614,7 +623,17 @@ main,
   }
 
   .hero-photo {
-    object-position: 62% 42%;
+    inset: auto;
+    top: 0;
+    left: 50%;
+    width: auto;
+    height: 108%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+    transform: translate3d(-40%, -4%, 0);
+    transform-origin: 40% 46%;
+    animation: hero-drift-narrow 22s ease-in-out infinite alternate;
   }
 
   .hero-copy {
@@ -940,6 +959,17 @@ main,
   .js .reveal-right {
     transform: translate3d(0, 28px, 0);
   }
+}
+
+html.motion-fallback .reveal,
+html.motion-fallback .reveal-left,
+html.motion-fallback .reveal-right,
+html.motion-fallback .project-frame,
+html.motion-fallback .rule,
+html.motion-fallback .socials a {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
