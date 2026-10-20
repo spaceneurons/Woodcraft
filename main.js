@@ -87,18 +87,38 @@ if (reduced) {
   reveals.forEach((el) => el.classList.add("is-in"));
 }
 
-const photo = document.querySelector(".project-photo");
+const photos = document.querySelectorAll("[data-parallax]");
 
 function updateParallax() {
-  if (!photo || reduced) return;
-  const frame = photo.parentElement;
-  if (!frame) return;
-  const rect = frame.getBoundingClientRect();
+  if (reduced) return;
   const view = window.innerHeight || 1;
-  const progress = (rect.top + rect.height / 2 - view / 2) / view;
-  const shift = Math.max(-36, Math.min(36, progress * -28));
-  photo.style.setProperty("--shift", `${shift}px`);
+  photos.forEach((photo) => {
+    const frame = photo.parentElement;
+    if (!frame) return;
+    const rect = frame.getBoundingClientRect();
+    const progress = (rect.top + rect.height / 2 - view / 2) / view;
+    const shift = Math.max(-36, Math.min(36, progress * -28));
+    photo.style.setProperty("--shift", `${shift}px`);
+  });
 }
+
+document.querySelectorAll(".faq-item").forEach((item) => {
+  const button = item.querySelector("button");
+  if (!button) return;
+  button.addEventListener("click", () => {
+    const list = item.parentElement;
+    const willOpen = !item.classList.contains("is-open");
+    list.querySelectorAll(".faq-item").forEach((other) => {
+      other.classList.remove("is-open");
+      const otherButton = other.querySelector("button");
+      if (otherButton) otherButton.setAttribute("aria-expanded", "false");
+    });
+    if (willOpen) {
+      item.classList.add("is-open");
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+});
 
 if (!lenis) {
   window.addEventListener("scroll", updateParallax, { passive: true });
