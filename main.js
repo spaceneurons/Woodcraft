@@ -170,6 +170,34 @@ if (reel) {
   });
 }
 
+const woodRail = document.querySelector(".wood-grid");
+if (woodRail) {
+  woodRail.addEventListener(
+    "wheel",
+    (event) => {
+      const line = event.deltaMode === 1 ? 16 : 1;
+      const deltaX = event.deltaX * line;
+      const deltaY = event.deltaY * line;
+      const horizontal = event.shiftKey ? deltaY : deltaX;
+      const vertical = event.shiftKey ? 0 : deltaY;
+      if (Math.abs(horizontal) <= Math.abs(vertical)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      woodRail.scrollLeft += horizontal;
+    },
+    { passive: false }
+  );
+
+  const updateWoodFade = () => {
+    const max = woodRail.scrollWidth - woodRail.clientWidth;
+    const left = woodRail.scrollLeft;
+    woodRail.classList.toggle("is-scrolled", left > 8);
+    woodRail.classList.toggle("is-end", max - left < 8);
+  };
+  woodRail.addEventListener("scroll", updateWoodFade, { passive: true });
+  updateWoodFade();
+}
+
 const panels = document.querySelectorAll(".about.panel, .faq.panel, .cta.panel");
 
 function stackPanels() {
