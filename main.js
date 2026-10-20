@@ -124,3 +124,25 @@ if (!lenis) {
   window.addEventListener("scroll", updateParallax, { passive: true });
 }
 updateParallax();
+
+const panels = document.querySelectorAll(".panel");
+
+function stackPanels() {
+  if (reduced) return;
+  const view = window.innerHeight;
+  panels.forEach((panel) => {
+    const extra = Math.max(0, panel.offsetHeight - view);
+    panel.style.top = extra ? `${-extra}px` : "0px";
+  });
+}
+
+if (!reduced) {
+  if ("ResizeObserver" in window) {
+    const panelSizes = new ResizeObserver(stackPanels);
+    panels.forEach((panel) => panelSizes.observe(panel));
+  }
+  window.addEventListener("resize", stackPanels);
+  window.addEventListener("load", stackPanels);
+  document.fonts?.ready.then(stackPanels);
+  stackPanels();
+}

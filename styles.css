@@ -184,31 +184,44 @@ main,
 .sheet {
   position: relative;
   z-index: 2;
-  background-color: #000;
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) calc(3124 * 100cqw / 2281 - 240px),
-      #000 calc(3124 * 100cqw / 2281)
-    ),
-    url("images/fern.jpg");
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% 100%, 100% auto;
-  background-position: center top, center calc(-972 * 100cqw / 2281);
-  box-shadow: 0 -28px 70px rgba(0, 0, 0, 0.55);
+  background: #000;
 }
 
-.sheet::before {
+.panel {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  background-color: #050605;
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.68)),
+    url("images/fern.jpg");
+  background-repeat: no-repeat;
+  background-size: auto, cover;
+  background-position: center, center top;
+  box-shadow: 0 -32px 70px rgba(0, 0, 0, 0.62);
+}
+
+.panel::before {
   content: "";
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   left: 0;
   right: 0;
   top: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   pointer-events: none;
 }
+
+.about { z-index: 2; }
+.reasons { z-index: 3; }
+.catalog { z-index: 4; }
+.works { z-index: 5; }
+.process { z-index: 6; }
+.materials { z-index: 7; }
+.reviews { z-index: 8; }
+.faq { z-index: 9; }
+.cta { z-index: 10; }
 
 .hero-copy {
   position: relative;
@@ -1466,6 +1479,13 @@ html.motion-fallback .steps-line {
   .hero-photo,
   .hero-copy > * {
     animation: none;
+  }
+
+  .panel {
+    position: relative;
+    top: auto !important;
+    min-height: 0;
+    box-shadow: none;
   }
 
   .js .reveal,
