@@ -657,8 +657,12 @@ main,
   max-width: 38ch;
 }
 
+.works .band-head {
+  align-items: start;
+}
+
 .works .band-head .lead {
-  margin-top: calc(64 * var(--s));
+  margin-top: calc(40 * var(--s));
 }
 
 .band-center {
