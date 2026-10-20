@@ -1111,6 +1111,46 @@ main,
     linear-gradient(160deg, #c89662, #7a5132 70%);
 }
 
+.swatch-cherry {
+  background:
+    repeating-linear-gradient(
+      96deg,
+      rgba(90, 24, 22, 0.28) 0 1px,
+      transparent 1px 9px
+    ),
+    linear-gradient(145deg, #d4897a 0%, #9a463c 52%, #5c241f 100%);
+}
+
+.swatch-maple {
+  background:
+    repeating-linear-gradient(
+      92deg,
+      rgba(120, 90, 50, 0.16) 0 1px,
+      transparent 1px 7px
+    ),
+    linear-gradient(145deg, #f7f1e6 0%, #e6d3b4 48%, #c9b08a 100%);
+}
+
+.swatch-beech {
+  background:
+    repeating-linear-gradient(
+      88deg,
+      rgba(120, 60, 40, 0.18) 0 1px,
+      transparent 1px 6px
+    ),
+    linear-gradient(150deg, #f0cbb4 0%, #d39274 50%, #8f5640 100%);
+}
+
+.swatch-larch {
+  background:
+    repeating-linear-gradient(
+      102deg,
+      rgba(90, 50, 12, 0.28) 0 2px,
+      transparent 2px 11px
+    ),
+    linear-gradient(145deg, #efc27a 0%, #c4843a 55%, #7a4a16 100%);
+}
+
 .wood-grid h3 {
   margin-bottom: calc(8 * var(--s));
 }
