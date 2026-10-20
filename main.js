@@ -125,6 +125,51 @@ if (!lenis) {
 }
 updateParallax();
 
+const reel = document.querySelector(".reel");
+if (reel) {
+  const slides = [...reel.querySelectorAll(".reel-slide")];
+  const dots = [...reel.querySelectorAll(".reel-dots button")];
+  const nextButton = reel.querySelector(".reel-next");
+  const fields = {
+    index: reel.querySelector("[data-reel='index']"),
+    title: reel.querySelector("[data-reel='title']"),
+    text: reel.querySelector("[data-reel='text']"),
+    meta: reel.querySelector("[data-reel='meta']"),
+  };
+  const copy = reel.querySelector(".work-copy");
+  let current = 0;
+
+  const showSlide = (index) => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-on", slideIndex === current);
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-on", dotIndex === current);
+      dot.setAttribute("aria-current", dotIndex === current ? "true" : "false");
+    });
+    const slide = slides[current];
+    fields.index.textContent = slide.dataset.index;
+    fields.title.textContent = slide.dataset.title;
+    fields.text.textContent = slide.dataset.text;
+    fields.meta.textContent = slide.dataset.meta;
+    copy.classList.remove("is-swap");
+    void copy.offsetWidth;
+    copy.classList.add("is-swap");
+  };
+
+  nextButton?.addEventListener("click", () => {
+    nextButton.classList.remove("is-hinting");
+    showSlide(current + 1);
+  });
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      nextButton?.classList.remove("is-hinting");
+      showSlide(index);
+    });
+  });
+}
+
 const panels = document.querySelectorAll(".panel");
 
 function stackPanels() {
