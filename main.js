@@ -67,7 +67,7 @@ function countUp(node) {
   requestAnimationFrame(tick);
 }
 
-const reveals = document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll(".reveal, .pop, .wipe, .sequence");
 if (reduced) {
   reveals.forEach((el) => el.classList.add("is-in"));
 } else if ("IntersectionObserver" in window) {
@@ -170,7 +170,7 @@ if (reel) {
   });
 }
 
-const panels = document.querySelectorAll(".panel");
+const panels = document.querySelectorAll(".about.panel, .faq.panel, .cta.panel");
 
 function stackPanels() {
   if (reduced) return;

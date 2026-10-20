@@ -173,10 +173,21 @@ main,
 }
 
 .panel {
+  position: relative;
+  background: #050605;
+}
+
+.about.panel,
+.faq.panel,
+.cta.panel {
   position: sticky;
   top: 0;
   min-height: 100vh;
-  background: #050605;
+}
+
+.about.panel,
+.reasons.panel,
+.cta.panel {
   box-shadow: 0 -32px 70px rgba(0, 0, 0, 0.62);
 }
 
@@ -644,6 +655,10 @@ main,
 .band-head .lead {
   justify-self: end;
   max-width: 38ch;
+}
+
+.works .band-head .lead {
+  margin-top: calc(64 * var(--s));
 }
 
 .band-center {
@@ -1585,31 +1600,85 @@ main,
 
 .js .steps > li {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
+  transform: scale(0.62);
+  filter: blur(8px);
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.js .steps-wrap.is-in .steps > li {
+.js .sequence.is-in .steps > li {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
-.js .steps-wrap.is-in .steps > li:nth-child(1) {
-  transition-delay: 0.12s;
+.js .sequence.is-in .steps > li:nth-child(1) {
+  transition-delay: 0.08s;
 }
 
-.js .steps-wrap.is-in .steps > li:nth-child(2) {
-  transition-delay: 0.24s;
+.js .sequence.is-in .steps > li:nth-child(2) {
+  transition-delay: 0.32s;
 }
 
-.js .steps-wrap.is-in .steps > li:nth-child(3) {
-  transition-delay: 0.36s;
+.js .sequence.is-in .steps > li:nth-child(3) {
+  transition-delay: 0.56s;
 }
 
-.js .steps-wrap.is-in .steps > li:nth-child(4) {
-  transition-delay: 0.48s;
+.js .sequence.is-in .steps > li:nth-child(4) {
+  transition-delay: 0.8s;
+}
+
+.js .pop .reveal {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+.js .pop .wrap {
+  opacity: 0;
+  transform: scale(0.9);
+  filter: blur(14px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js .pop.is-in .wrap {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.js .wipe .shot {
+  clip-path: inset(0 100% 0 0 round 28px);
+}
+
+.js .wipe.is-in .shot {
+  clip-path: inset(0 0 0 0 round 28px);
+  transition: clip-path 1.15s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.js .wipe .work-copy,
+.js .wipe .band-head .lead {
+  opacity: 0;
+  transform: translate3d(36px, 18px, 0);
+}
+
+.js .wipe.is-in .work-copy,
+.js .wipe.is-in .band-head .lead {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.28s,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.28s;
+}
+
+.js .wipe .frame {
+  transform: none;
 }
 
 .js .steps-line {
@@ -1717,9 +1786,16 @@ html.motion-fallback .frame,
 html.motion-fallback .rule,
 html.motion-fallback .socials a,
 html.motion-fallback .steps > li,
-html.motion-fallback .steps-line {
+html.motion-fallback .steps-line,
+html.motion-fallback .pop .wrap,
+html.motion-fallback .wipe .shot,
+html.motion-fallback .wipe .work-copy,
+html.motion-fallback .wipe .band-head .lead,
+html.motion-fallback .sequence .steps > li {
   opacity: 1;
   transform: none;
+  filter: none;
+  clip-path: none;
   transition: none;
 }
 
@@ -1753,9 +1829,16 @@ html.motion-fallback .steps-line {
   .reel-slide.is-on img,
   .reel-slide.is-on .reel-study,
   .steps li:hover::after,
-  .steps li:focus-within::after {
+  .steps li:focus-within::after,
+  .pop .wrap,
+  .wipe .shot,
+  .wipe .work-copy,
+  .wipe .band-head .lead,
+  .sequence .steps > li {
     opacity: 1;
     transform: none;
+    filter: none;
+    clip-path: none;
     transition: none;
     animation: none;
   }
@@ -1802,6 +1885,10 @@ html.motion-fallback .steps-line {
     max-width: 46ch;
     margin-top: 0;
     font-size: 15px;
+  }
+
+  .works .band-head .lead {
+    margin-top: 22px;
   }
 
   .band-center {
