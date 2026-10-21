@@ -263,21 +263,10 @@ main,
   line-height: 1;
 }
 
-.site-city svg,
-.site-bag svg {
+.site-city svg {
   width: calc(20 * var(--s));
   height: calc(20 * var(--s));
   display: block;
-}
-
-.site-bag {
-  display: grid;
-  place-items: center;
-  color: #f3f3f0;
-}
-
-.site-bag:hover {
-  color: #fff;
 }
 
 .hero-copy {
@@ -1139,7 +1128,64 @@ main,
 }
 
 .wood-rail {
+  position: relative;
   min-width: 0;
+}
+
+.wood-nav {
+  position: absolute;
+  z-index: 3;
+  top: 42%;
+  display: grid;
+  place-items: center;
+  width: calc(44 * var(--s));
+  height: calc(44 * var(--s));
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 50%;
+  background: rgba(5, 6, 5, 0.55);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+.wood-nav svg {
+  width: calc(18 * var(--s));
+  height: calc(18 * var(--s));
+}
+
+.wood-prev {
+  left: max(12px, calc(var(--rail-inset, 20px) - 54px));
+}
+
+.wood-next {
+  right: max(12px, calc(var(--rail-inset, 20px) - 54px));
+}
+
+.wood-rail:not(.is-still) .wood-prev {
+  animation: wood-nudge-left 1.6s ease-in-out infinite;
+}
+
+.wood-rail:not(.is-still) .wood-next {
+  animation: wood-nudge-right 1.6s ease-in-out infinite;
+}
+
+@keyframes wood-nudge-left {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-7px);
+  }
+}
+
+@keyframes wood-nudge-right {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(7px);
+  }
 }
 
 .wood-grid {
@@ -1773,6 +1819,23 @@ main,
   transition-delay: 0.8s;
 }
 
+.js .catalog-grid.sequence > li {
+  opacity: 0;
+  transform: scale(0.62);
+  filter: blur(8px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js .catalog-grid.sequence.is-in > li {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition-delay: calc(0.08s + var(--i, 0) * 0.24s);
+}
+
 .js .pop .reveal {
   opacity: 1;
   transform: none;
@@ -1934,7 +1997,8 @@ html.motion-fallback .pop .wrap,
 html.motion-fallback .wipe .shot,
 html.motion-fallback .wipe .work-copy,
 html.motion-fallback .wipe .band-head .lead,
-html.motion-fallback .sequence .steps > li {
+html.motion-fallback .sequence .steps > li,
+html.motion-fallback .catalog-grid.sequence > li {
   opacity: 1;
   transform: none;
   filter: none;
@@ -1977,7 +2041,9 @@ html.motion-fallback .sequence .steps > li {
   .wipe .shot,
   .wipe .work-copy,
   .wipe .band-head .lead,
-  .sequence .steps > li {
+  .sequence .steps > li,
+  .catalog-grid.sequence > li,
+  .wood-nav {
     opacity: 1;
     transform: none;
     filter: none;
@@ -2077,10 +2143,28 @@ html.motion-fallback .sequence .steps > li {
     font-size: 14px;
   }
 
-  .site-city svg,
-  .site-bag svg {
+  .site-city svg {
     width: 18px;
     height: 18px;
+  }
+
+  .wood-nav {
+    width: 40px;
+    height: 40px;
+    top: 38%;
+  }
+
+  .wood-nav svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .wood-prev {
+    left: 8px;
+  }
+
+  .wood-next {
+    right: 8px;
   }
 
   .hero-copy {

@@ -234,8 +234,105 @@ if (woodRail) {
   );
 
   park();
-  window.addEventListener("resize", park);
-  document.fonts?.ready.then(park);
+  window.addEventListener("resize", () => {
+    const first = woodRail.children[count];
+    const next = woodRail.children[count * 2];
+    if (!first || !next) return;
+    setW = next.offsetLeft - first.offsetLeft;
+  });
+  document.fonts?.ready.then(() => {
+    if (!hintStop && !hintStarted) park();
+  });
+
+  const railWrap = woodRail.closest(".wood-rail");
+  const prevButton = railWrap?.querySelector(".wood-prev");
+  const nextButton = railWrap?.querySelector(".wood-next");
+  let hintStop = reduced;
+  let hintStarted = false;
+  let hintFrame = 0;
+
+  const cardStep = () => {
+    const card = woodRail.querySelector("li");
+    if (!card) return 280;
+    const gap = parseFloat(getComputedStyle(woodRail).columnGap) || 16;
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  const stopHint = () => {
+    if (hintStop) return;
+    hintStop = true;
+    cancelAnimationFrame(hintFrame);
+    woodRail.style.scrollSnapType = "";
+    railWrap?.classList.add("is-still");
+  };
+
+  const scrollByCard = (direction) => {
+    stopHint();
+    woodRail.scrollBy({ left: direction * cardStep(), behavior: "smooth" });
+  };
+
+  prevButton?.addEventListener("click", () => scrollByCard(-1));
+  nextButton?.addEventListener("click", () => scrollByCard(1));
+  woodRail.addEventListener("pointerdown", stopHint, { passive: true });
+  woodRail.addEventListener("touchstart", stopHint, { passive: true });
+  woodRail.addEventListener(
+    "wheel",
+    (event) => {
+      const line = event.deltaMode === 1 ? 16 : 1;
+      const horizontal = Math.abs((event.shiftKey ? event.deltaY : event.deltaX) * line);
+      const vertical = Math.abs((event.shiftKey ? 0 : event.deltaY) * line);
+      if (horizontal > vertical) stopHint();
+    },
+    { passive: true }
+  );
+
+  const playHint = () => {
+    if (hintStop || hintStarted) return;
+    hintStarted = true;
+    const origin = woodRail.scrollLeft;
+    const distance = Math.min(180, cardStep() * 0.72);
+    const travel = 1100;
+    const hold = 420;
+    const back = 1100;
+    const pause = 900;
+    const cycle = travel + hold + back + pause;
+    const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - ((-2 * t + 2) ** 2) / 2);
+    const started = performance.now();
+    woodRail.style.scrollSnapType = "none";
+    const tick = (now) => {
+      if (hintStop) return;
+      const t = (now - started) % cycle;
+      let next = origin;
+      if (t < travel) next = origin + distance * ease(t / travel);
+      else if (t < travel + hold) next = origin + distance;
+      else if (t < travel + hold + back) {
+        const p = (t - travel - hold) / back;
+        next = origin + distance * (1 - ease(p));
+      }
+      locking = true;
+      woodRail.scrollLeft = next;
+      locking = false;
+      hintFrame = requestAnimationFrame(tick);
+    };
+    hintFrame = requestAnimationFrame(tick);
+  };
+
+  if (!reduced && "IntersectionObserver" in window) {
+    const hintWatch = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          playHint();
+          hintWatch.disconnect();
+        }
+      },
+      { threshold: 0.45 }
+    );
+    hintWatch.observe(woodRail);
+  } else if (!reduced) {
+    playHint();
+  } else {
+    railWrap?.classList.add("is-still");
+  }
 }
 
 const panels = document.querySelectorAll(".faq.panel, .cta.panel");
