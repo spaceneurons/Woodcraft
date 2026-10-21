@@ -188,17 +188,57 @@ if (woodRail) {
     { passive: false }
   );
 
-  const updateWoodFade = () => {
-    const max = woodRail.scrollWidth - woodRail.clientWidth;
-    const left = woodRail.scrollLeft;
-    woodRail.classList.toggle("is-scrolled", left > 8);
-    woodRail.classList.toggle("is-end", max - left < 8);
+  const originals = [...woodRail.children];
+  const count = originals.length;
+  for (let i = count - 1; i >= 0; i -= 1) {
+    const clone = originals[i].cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    woodRail.insertBefore(clone, woodRail.firstChild);
+  }
+  originals.forEach((node) => {
+    const clone = node.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    woodRail.appendChild(clone);
+  });
+
+  let setW = 0;
+  let locking = false;
+
+  const park = () => {
+    const first = woodRail.children[count];
+    const next = woodRail.children[count * 2];
+    if (!first || !next) return;
+    setW = next.offsetLeft - first.offsetLeft;
+    const pad = parseFloat(getComputedStyle(woodRail).scrollPaddingLeft) || 0;
+    locking = true;
+    woodRail.style.scrollSnapType = "none";
+    woodRail.scrollLeft = first.offsetLeft - pad;
+    woodRail.style.scrollSnapType = "";
+    locking = false;
   };
-  woodRail.addEventListener("scroll", updateWoodFade, { passive: true });
-  updateWoodFade();
+
+  woodRail.addEventListener(
+    "scroll",
+    () => {
+      if (locking || !setW) return;
+      if (woodRail.scrollLeft < setW * 0.5 || woodRail.scrollLeft >= setW * 1.5) {
+        locking = true;
+        const snap = woodRail.style.scrollSnapType;
+        woodRail.style.scrollSnapType = "none";
+        woodRail.scrollLeft += woodRail.scrollLeft < setW * 0.5 ? setW : -setW;
+        woodRail.style.scrollSnapType = snap;
+        locking = false;
+      }
+    },
+    { passive: true }
+  );
+
+  park();
+  window.addEventListener("resize", park);
+  document.fonts?.ready.then(park);
 }
 
-const panels = document.querySelectorAll(".about.panel, .faq.panel, .cta.panel");
+const panels = document.querySelectorAll(".faq.panel, .cta.panel");
 
 function stackPanels() {
   if (reduced) return;
