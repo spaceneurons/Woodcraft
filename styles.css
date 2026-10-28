@@ -2100,12 +2100,25 @@ html.motion-fallback .catalog-grid.sequence > li {
 
   .site-nav {
     grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo city"
+      "links links";
+    align-items: center;
     padding: 16px 20px 0;
-    row-gap: 12px;
+    row-gap: 14px;
+  }
+
+  .site-nav .logo {
+    grid-area: logo;
+  }
+
+  .site-tools {
+    grid-area: city;
+    align-self: center;
   }
 
   .site-links {
-    grid-column: 1 / -1;
+    grid-area: links;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 14px 18px;
