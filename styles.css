@@ -21,6 +21,8 @@
 html {
   scroll-behavior: auto;
   overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -1518,7 +1520,7 @@ main,
   }
 
   .eyebrow {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.35;
     letter-spacing: 0.04em;
     max-width: 22em;
@@ -1621,11 +1623,11 @@ main,
 
   .reason-grid h3 {
     margin-top: 22px;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .reason-grid p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .cta {
@@ -1681,7 +1683,7 @@ main,
   }
 
   .legal {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .footer {
@@ -1700,7 +1702,7 @@ main,
   }
 
   .logo-sub {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .footer-nav {
@@ -2039,7 +2041,7 @@ html.motion-fallback .catalog-grid.sequence > li {
   }
 
   .kicker {
-    font-size: 11px;
+    font-size: 13px;
     margin-bottom: 10px;
   }
 
@@ -2156,11 +2158,14 @@ html.motion-fallback .catalog-grid.sequence > li {
   }
 
   .catalog-grid h3,
-  .wood-grid h3,
   .work-copy h3,
   .case h3,
   .steps h3 {
-    font-size: 18px;
+    font-size: 22px;
+  }
+
+  .wood-grid h3 {
+    font-size: 24px;
   }
 
   .catalog-grid p,
@@ -2168,9 +2173,51 @@ html.motion-fallback .catalog-grid.sequence > li {
   .work-copy p,
   .case p,
   .steps p,
-  .review-grid blockquote p,
   .faq-panel p {
+    font-size: 16px;
+  }
+
+  .review-grid blockquote p {
+    font-size: 17px;
+  }
+
+  .work-meta {
     font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .review-grid footer {
+    gap: 14px;
+  }
+
+  .review-grid footer > span:not(.avatar) {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .review-grid footer span {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .review-grid strong {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  .review-grid footer .avatar {
+    font-size: 15px;
+  }
+
+  .thanks strong {
+    font-size: 24px;
+  }
+
+  .thanks p {
+    font-size: 16px;
   }
 
   .shot {
@@ -2185,7 +2232,7 @@ html.motion-fallback .catalog-grid.sequence > li {
     height: 44px;
     gap: 8px;
     padding: 0 16px 0 18px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .reel-next svg {
@@ -2198,9 +2245,9 @@ html.motion-fallback .catalog-grid.sequence > li {
   }
 
   .avatar {
-    width: 44px;
-    height: 44px;
-    font-size: 13px;
+    width: 48px;
+    height: 48px;
+    font-size: 15px;
   }
 
   .avatar::after {
@@ -2234,10 +2281,10 @@ html.motion-fallback .catalog-grid.sequence > li {
   }
 
   .steps li .num {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     box-shadow: none;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .swatch {
@@ -2251,12 +2298,12 @@ html.motion-fallback .catalog-grid.sequence > li {
   }
 
   .marquee-group span {
-    font-size: 13px;
-    letter-spacing: 0.16em;
+    font-size: 16px;
+    letter-spacing: 0.14em;
   }
 
   .faq-item button {
-    font-size: 16px;
+    font-size: 18px;
     padding: 16px 0;
   }
 
@@ -2278,5 +2325,75 @@ html.motion-fallback .catalog-grid.sequence > li {
 
   .band h2 {
     font-size: 28px;
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1100px) {
+  .wood-grid h3,
+  .catalog-grid h3,
+  .work-copy h3,
+  .case h3,
+  .steps h3,
+  .reason-grid h3 {
+    font-size: 20px;
+  }
+
+  .wood-grid p,
+  .catalog-grid p,
+  .work-copy p,
+  .case p,
+  .steps p,
+  .reason-grid p,
+  .faq-panel p,
+  .lead,
+  .about-head p,
+  .cta-copy p,
+  .review-grid blockquote p {
+    font-size: 16px;
+  }
+
+  .review-grid footer span {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .review-grid strong {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .review-grid footer .avatar {
+    font-size: 14px;
+  }
+
+  .work-meta,
+  .kicker,
+  .logo-sub,
+  .legal,
+  .steps li .num {
+    font-size: 13px;
+  }
+
+  .marquee-group span,
+  .logo-name,
+  .stats span,
+  .site-links a,
+  .site-city,
+  .footer-nav a,
+  .footer-note,
+  .faq-item button,
+  .submit,
+  .thanks p {
+    font-size: 16px;
+  }
+
+  .reel-next {
+    font-size: 14px;
+  }
+
+  .thanks strong,
+  .stats strong {
+    font-size: 24px;
   }
 }
