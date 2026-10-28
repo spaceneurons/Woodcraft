@@ -1520,10 +1520,11 @@ main,
   }
 
   .eyebrow {
-    font-size: 13px;
-    line-height: 1.35;
-    letter-spacing: 0.04em;
-    max-width: 22em;
+    font-size: clamp(10px, 3.05vw, 13px);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    max-width: none;
+    white-space: nowrap;
   }
 
   .hero h1 {
