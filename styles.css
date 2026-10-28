@@ -1702,7 +1702,7 @@ main,
   }
 
   .logo-sub {
-    font-size: 12px;
+    display: none;
   }
 
   .footer-nav {
