@@ -1520,9 +1520,9 @@ main,
   }
 
   .eyebrow {
-    font-size: clamp(10px, 3.05vw, 13px);
+    font-size: clamp(9px, 2.7vw, 12px);
     line-height: 1.2;
-    letter-spacing: 0.02em;
+    letter-spacing: 0;
     max-width: none;
     white-space: nowrap;
   }
