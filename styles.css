@@ -2113,8 +2113,7 @@ html.motion-fallback .catalog-grid.sequence > li {
   }
 
   .site-tools {
-    grid-area: city;
-    align-self: center;
+    display: none;
   }
 
   .site-links {
